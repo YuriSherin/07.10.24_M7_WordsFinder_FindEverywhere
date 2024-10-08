@@ -32,11 +32,10 @@ class WordsFinder:
     def find(self, word: str) -> dict:
         """Метод возвращает словарь, где ключ - имя файла,
         значение - позиция первого вхождения искомого слова в список слов этого файла,
-        если слово не найдено в списке - значение равно -1"""
+        если слово не найдено в списке - возвращает пустой словарь"""
         res = {}
         for key, item in self.get_all_words().items():
             i = 0
-            res[key] = -1
             for w in item:
                 if w == word.lower():
                     res[key] = i + 1
@@ -60,3 +59,4 @@ if __name__ == '__main__':
     print('Количество слов teXT: ', finder2.count('teXT'))
     print('Поиск слова жДи: ', finder2.find('жДи'))
     print('Количество слов верНусь: ', finder2.count('верНусь'))
+    print('Поиск слова Абракадабра: ', finder2.find('Абракадабра'))
